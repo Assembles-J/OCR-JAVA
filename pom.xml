@@ -4,11 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.fastbee</groupId>
-    <artifactId>fastbee</artifactId>
-    <version>3.8.5</version>
+    <groupId>com.github.assembles</groupId>
+    <artifactId>ocr</artifactId>
+    <version>1.0.0</version>
 
-    <name>fastbee</name>
+    <name>ocr</name>
 <!--    <url>http://fastbee.cn</url>-->
     <description>OCR-JAVA</description>
 
@@ -17,32 +17,37 @@
     </properties>
 
     <dependencies>
-
+        <!-- https://mvnrepository.com/artifact/org.graalvm.polyglot/polyglot -->
+        <dependency>
+            <groupId>org.graalvm.polyglot</groupId>
+            <artifactId>polyglot</artifactId>
+            <version>24.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.graalvm.polyglot</groupId>
+            <artifactId>python</artifactId>
+            <version>24.0.0</version>
+            <type>pom</type>
+        </dependency>
         <dependency>
             <groupId>org.graalvm.sdk</groupId>
             <artifactId>graal-sdk</artifactId>
-            <version>22.3.0</version> <!-- 替换为适合你的 GraalVM 版本 -->
+            <version>24.0.2</version>
         </dependency>
 
         <dependency>
             <groupId>org.graalvm.truffle</groupId>
             <artifactId>truffle-api</artifactId>
-            <version>22.3.0</version> <!-- 替换为适合你的 GraalVM 版本 -->
+            <version>24.0.2</version>
         </dependency>
+        <dependency>
+            <groupId>org.graalvm.polyglot</groupId>
+            <!-- Select tools: profiler, inspect, coverage, dap, tools -->
+            <artifactId>tools</artifactId>
+<!--            <version>${graalvm.polyglot.version}</version>-->
+            <version>24.0.2</version>
 
-        <dependency>
-            <groupId>org.python</groupId>
-            <artifactId>jython-standalone</artifactId>
-            <version>2.7.2</version>
-        </dependency>
-
-        <dependency>
-            <groupId>net.java.dev.jna</groupId>
-            <artifactId>jna</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>net.java.dev.jna</groupId>
-            <artifactId>jna-platform</artifactId>
+            <type>pom</type>
         </dependency>
 
     </dependencies>
@@ -71,6 +76,7 @@
 
 
     <build>
+        <sourceDirectory>src/main/java</sourceDirectory>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
